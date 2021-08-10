@@ -21,16 +21,15 @@ export default function useApplicationData() {
       [id]: appointment
     };
     
-   
+    const days = updateSpots(`CONFIRM`)
     return axios.put(`/api/appointments/${id}`, { interview })
                  .then(()=>{
                   setState({
                     ...state,
-                    appointments
+                    appointments,
+                    days
                   });
-                 // updateSpots(id,"Confirmed")
                  }).catch((err)=>{console.loge("error of saving ",err)})
-    
  }
  
  function cancelInterview(id) {
@@ -43,29 +42,35 @@ export default function useApplicationData() {
     ...state.appointments,
     [id]: appointment
   };
+  const days = updateSpots();
   return axios.delete(`/api/appointments/${id}`)
               .then(()=>{
                setState(prev => ({
                  ...prev,
-                 appointments                 
+                 appointments,
+                 days                
                }));
-              // updateSpots(id,"Canceled")
+                
               }).catch((err)=>{console.loge("error of deletting ",err)})
  }
  const setDay = day => setState({ ...state, day });
- function updateSpots(id,action) {
-   //create a shallow copy of the days array
-  let daysArr = [...state.days];
-  let currentDay = {...daysArr.filter(d=>d.name == state.day)[0]};
-  if(action === "Canceled"){
-   currentDay.spots++;
-  } else if (action === "Confirmed"){
-    currentDay.spots--;
+
+// --------------------------------Func updateSpots-------------------
+  function updateSpots(action) {
+
+  const dayIndex = state.days.findIndex(day => day.name === state.day)
+
+  const days = state.days;
+
+  if (action === `CONFIRM`) {
+    days[dayIndex].spots -= 1
+  } else {
+    days[dayIndex].spots += 1
   }
-   setState({
-     days: daysArr
-   });
- }
+
+  return days;
+  }
+
   useEffect(() => {
     const promise1 = axios.get('/api/days');
     const promise2 = axios.get('/api/appointments');
