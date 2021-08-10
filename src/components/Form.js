@@ -38,7 +38,7 @@ export default function Form(props) {
        onClick={reset}
       >Cancel</Button>
       <Button confirm
-       onClick={props.onSave}
+       onClick={()=>props.onSave(name, interviewer)}
       >Save</Button>
     </section>
   </section>

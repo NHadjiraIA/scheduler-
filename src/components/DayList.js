@@ -6,6 +6,7 @@ export default function DayList(props) {
  const dayItem = props.days.map(data =>{
    return (
      <DayListItem 
+     key={data.id}
      name={data.name} 
      spots={data.spots} 
      selected={data.name === props.day}
@@ -14,9 +15,9 @@ export default function DayList(props) {
    )
  })
   return (
-    <li >
+    <ul >
        {dayItem}
-    </li>
+    </ul>
   )
 }
 ;
