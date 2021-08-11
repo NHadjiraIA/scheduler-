@@ -29,19 +29,14 @@ return interviewer;
 }
 
 }
-export function getInterviewersForDay(state, day) {
-  let dayArr= state.days.filter(d => d.name == day);
-  let appointments = dayArr.length == 0 ? [] : dayArr[0].appointments;
-  var interviewerId = null;
-  let interviewers = [];
-   dayArr[0].interviewers.forEach(intervId =>{
-    var interviewer = state.interviewers[intervId];
-    interviewers.push(interviewer)
-    // interviewerId =  interview == null ? null : interview.interviewer;
-    // if(interviewerId !== null){
-    //   interviewers.push(state.interviewers[interviewerId]);
-    })
-  //});
-  return interviewers;
 
+export function getInterviewersForDay(state, dayName) {
+  let day = state.days.filter(d => d.name == dayName)[0];
+  let interviewers = [];
+  if(day !== undefined && day.interviewers !== undefined){
+    day.interviewers.forEach(interviewerId =>{
+      interviewers.push(state.interviewers[interviewerId]);
+  });
+  }
+  return interviewers;
 }

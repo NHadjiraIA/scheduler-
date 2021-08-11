@@ -8,10 +8,7 @@ export default function DayListItem(props) {
     if (currentSpots === 0){
       return "no spots remaining"
     }
-    if (currentSpots === 1){
-      return "1 spot remaining"
-    }
-    return `${currentSpots} spots remaining`;
+    return `${currentSpots} spot${currentSpots == 1 ? '':'s'} remaining`;
   }
   const dayClass = classNames(
   

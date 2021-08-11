@@ -3,7 +3,7 @@ import Button from "./Button"
 import InterviewerList from './InterviewerList'
 import "components/Appointment/styles.scss"
 export default function Form(props) {
- 
+  const [error, setError] = useState("");
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] =useState(props.interviewer || null)
   //to reset the input 
@@ -13,7 +13,15 @@ export default function Form(props) {
    props.onCancel()
 
   }
-
+  function validate() {
+    if (name === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
+    setError("");
+    props.onSave(name, interviewer);
+  }
+  
   return (
     <main className="appointment__card appointment__card--create">
   <section className="appointment__card-left">
@@ -26,10 +34,12 @@ export default function Form(props) {
         placeholder="Enter Student Name"
         id="name-input"
         onChange={(e) => setName(e.target.value)}
-         
+        data-testid="student-name-input"
       />
         
     </form>
+    <section className="appointment__validation">{error}</section>
+
     <InterviewerList interviewers={props.interviewers} value={interviewer} onChange={setInterviewer} />
   </section>
   <section className="appointment__card-right">
@@ -38,7 +48,8 @@ export default function Form(props) {
        onClick={reset}
       >Cancel</Button>
       <Button confirm
-       onClick={()=>props.onSave(name, interviewer)}
+        onClick={validate}
+      //  onClick={()=>props.onSave(name, interviewer)}
       >Save</Button>
     </section>
   </section>
