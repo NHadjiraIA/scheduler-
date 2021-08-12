@@ -10,6 +10,10 @@ Jest tests are used through the development of the project.
 ## Screenshots
 ![Screenshot of home page] (https://github.com/NHadjiraIA/tweeter/blob/master/docs/home-page.png)
 
+## Getting Started
+
+## Dependencies
+
 ## Setup
 
 Install dependencies with `npm install`.
