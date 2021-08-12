@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-
 import DayList from './DayList';
 import Appointment from './Appointment'
 import useApplicationData from "hooks/useApplicationData"
@@ -33,9 +32,6 @@ export default function Application(props) {
         />
       );
     })
-  
-
-  
 
   return (
     <main className="layout">
@@ -60,12 +56,11 @@ export default function Application(props) {
           alt="Lighthouse Labs"
         />
         
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
-      </section>
+        </section>
       <section className="schedule">
       
        {appointmentData}
-        {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}
+         
       </section>
     </main>
   );

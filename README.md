@@ -8,12 +8,24 @@ Jest tests are used through the development of the project.
 ## Demos
 
 ## Screenshots
-![Screenshot of home page] (https://github.com/NHadjiraIA/tweeter/blob/master/docs/home-page.png)
+![Screenshot of home page] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/homePage.png)
+![Screenshot book an appointement] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/bookAppointement.png)
+![Screenshot deleting in progress] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/deletingInProgress.png)
+![Screenshot of edit an appointement] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/editAppointment.png)
+![Screenshot of edit or delete button] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/editOrDeleteAppointment.png)
+![Screenshot of error message if the field of name is empty] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/errorBookAppoitementWithoutName.png)
+![Screenshot of error on saving an appointement] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/errorSaving.png)
+![Screenshot of saving in progress] (https://github.com/NHadjiraIA/scheduler-/blob/feature/implement-delete-and-update-appointments/docs/savingInProgress.png)
 
-## Getting Started
+ 
 
 ## Dependencies
-
+    -axios
+    -classnames
+    -normalize.css
+    -react 
+    -react-dom 
+    -react-scripts
 ## Setup
 
 Install dependencies with `npm install`.

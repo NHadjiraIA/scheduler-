@@ -6,7 +6,6 @@ export default function Form(props) {
   const [error, setError] = useState("");
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] =useState(props.interviewer || null)
-  //to reset the input 
   const reset = (e) =>{ 
    setName("")   
    setInterviewer(null)  
@@ -49,7 +48,6 @@ export default function Form(props) {
       >Cancel</Button>
       <Button confirm
         onClick={validate}
-      //  onClick={()=>props.onSave(name, interviewer)}
       >Save</Button>
     </section>
   </section>
