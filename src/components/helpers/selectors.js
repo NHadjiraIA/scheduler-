@@ -29,39 +29,14 @@ return interviewer;
 }
 
 }
-export function getInterviewersForDay(state, day) {
-  // //... returns an array of appointments for that day
-  // let resultF = state.days.filter(d => d.name === day);
-  // let appointments = [];
-  // if(resultF.length === 1){
-  //   resultF[0].appointments.forEach(aptId => {
-  //     appointments.push(state.appointments[aptId]);
-  //   });
-  // }
-  // appointments.forEach(aptId => {
-  //   appointments.push(state.appointments[aptId]);
-  // });
-  // let result = getInterview(state,appointments[2].interview)
-  // console.log("@@@@@@@@@@@@@@@@@@@",appointments[2].interview)
-  // console.log("resutl",result)
-  // return appointments;
 
-  if (state.days.length > 0) {
-    const dayObj = state.days.filter(obj => obj.name === day);
-
-   
-    if (dayObj.length === 1) {
-     
-      const interviewersArr = dayObj[0].appointments;
-       
-      const daysInterviewers = interviewersArr.map(int => state.interviewers[int]);
-      console.log(daysInterviewers)
-      return daysInterviewers;
-    } else {
-      return [];
-    }
-  } else {
-    return [];
+export function getInterviewersForDay(state, dayName) {
+  let day = state.days.filter(d => d.name == dayName)[0];
+  let interviewers = [];
+  if(day !== undefined && day.interviewers !== undefined){
+    day.interviewers.forEach(interviewerId =>{
+      interviewers.push(state.interviewers[interviewerId]);
+  });
   }
-  
+  return interviewers;
 }
