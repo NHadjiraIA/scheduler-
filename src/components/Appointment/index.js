@@ -37,6 +37,7 @@ export default function Appointment(props) {
       transition(EMPTY);
     }
   }, [props.interview, transition, mode]);
+
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -53,13 +54,7 @@ export default function Appointment(props) {
     }
     
   }
-  function cancel() {
-    transition(DELETING, true);
-
-    props.cancelInterview(props.id)
-      .then(() => transition(EMPTY))
-      .catch(() => transition(ERROR_DELETE, true));
-  }
+  
   function comeBackToConfirm (){
    transition(CONFIRM)
   }
@@ -68,6 +63,9 @@ export default function Appointment(props) {
    }
   function cancelDeleting (){
     transition(SHOW)
+  }
+  function confirmDeleting (){
+    transition(ERROR_DELETE)
   }
   return(
 
@@ -105,7 +103,7 @@ export default function Appointment(props) {
        <Confirm
         message="Are you sure you would like to delete?"
         onCancel={cancelDeleting}
-        onConfirm={cancel} 
+        onConfirm={confirmDeleting} 
         />}
          {mode === ERROR_SAVE && 
          <Error message="Could not book appointment" onClose={comeBackToEmpty} />}
