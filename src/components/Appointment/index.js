@@ -10,6 +10,7 @@ import Form from "components/Form"
 import Error from "components/Error"
 
 export default function Appointment(props) {
+  console.log("this is the props ", props)
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -65,7 +66,12 @@ export default function Appointment(props) {
     transition(SHOW)
   }
   function confirmDeleting (){
-    transition(ERROR_DELETE)
+    transition(DELETING)
+    props.cancelInterview(props.id)
+        .then(() => transition(EMPTY))
+        .catch(() => transition(ERROR_DELETE, true));
+    
+    
   }
   return(
 
