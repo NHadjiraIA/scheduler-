@@ -10,7 +10,6 @@ import Form from "components/Form"
 import Error from "components/Error"
 
 export default function Appointment(props) {
-  console.log("this is the props ", props)
   const [state, setState] = useState({
     day: "Monday",
     days: [],
